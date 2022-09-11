@@ -1,0 +1,15 @@
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+
+export const UPDATE_CART = 'UPDATE_CART'
+export const CART_LOADING = 'CART_LOADING';
+export const CART_FAILED = 'CART_FAILED';
+
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_FAILED = 'LOGOUT_FAILED';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+
+export const PRODUCTS_LOADING = 'PRODUCTS_LOADING';
+export const PRODUCTS_FAILED = 'PRODUCTS_FAILED';
+export const ADD_PRODUCTS = 'ADD_PRODUCTS';
