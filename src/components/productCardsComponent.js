@@ -21,7 +21,7 @@ const ProductCard = ({product}) => {
     }
 
     return(
-        <div className="col-12 col-sm-6 col-lg-3 product mb-4">
+        <div className="col-6 col-md-3 product mb-4">
              <Link to={`/product/${product.id}`}><img src={product.image} className="img-fluid"></img></Link>
               <div className="product-description">
                 <h5 className="product-title ms-3">{product.name}</h5>
@@ -31,14 +31,13 @@ const ProductCard = ({product}) => {
                   <span>{product.reviews_no} reviews</span>
                 </div>
                 <div className="price-div ms-3">
-                  <hr className="me-3"/>
-                  <h5 className="price text-danger d-inline">${product.offer_price}    </h5>
-                  <h5 className="d-inline"><s>${product.mrp}</s></h5>
-                  <p>save: ${(product.mrp-product.offer_price)}</p>
+                  <hr className="me-3 my-2"/>
+                  <h5 className="price fs-5 text-danger d-inline">${product.offer_price}    </h5>
+                  <h5 className="d-inline fs-6"><s>${product.mrp}</s></h5>
                 </div>
 
                 <div className="wrapper text-center">
-                 <button className="btn custom-btn mb-4" onClick={() => {handleClick()}}>
+                 <button className="btn custom-btn mt-3" onClick={() => {handleClick()}}>
                  {isClicked ? <FontAwesomeIcon icon={faSpinner}></FontAwesomeIcon> : "ADD TO CART"}</button>
                 </div>
                 

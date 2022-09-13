@@ -39,13 +39,15 @@ function Home(){
     
 }
 
-function CarouselComponent(props){
+function CarouselComponent(){
 
     const {allProducts} = useSelector((state) => state);
+    const [animating, setAnimating] = useState(false);
+
 
       var carouselItems = allProducts.products.map((item)=>{
         return(
-            <CarouselItem>
+            <CarouselItem key={item.id} onExited={() => setAnimating(false)} onExiting={() => setAnimating(true)}>
                 <img src={item.image} alt="name" className="img-fluid" ></img>
                 <CarouselCaption captionText={item.description} captionHeader={item.name}></CarouselCaption>
             </CarouselItem>
@@ -54,13 +56,16 @@ function CarouselComponent(props){
       
 
     const [activeIndex, setActiveIndex] = useState(0);
+    
 
     const next = () =>{
+        if(animating) return;
         const nextIndex = activeIndex === allProducts.products.length-1 ? 0 : activeIndex+1;
         setActiveIndex(nextIndex);
     }
     
     const prev = () => {
+        if(animating) return;
         const prevIndex = activeIndex === 0 ? allProducts.products.length-1 : activeIndex-1;
         setActiveIndex(prevIndex);
     }

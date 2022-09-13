@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Carousel, CarouselItem} from "reactstrap";
+import {Carousel, CarouselItem, CarouselControl} from "reactstrap";
 import {useSelector, useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
 import {addToCart} from "../redux/actionCreators";

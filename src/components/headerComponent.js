@@ -23,8 +23,8 @@ function Header(){
 
     const [isOpen, setToggle] = useState(false);
    return(
-    <Navbar className="custom-navbar py-4" dark expand="md">
-       <NavbarBrand href="/">AweShop</NavbarBrand>
+    <Navbar className="custom-navbar py-4" dark expand="lg">
+       <NavbarBrand href="/">WatchStore</NavbarBrand>
        {user.isAuthenticated && <span className="text-white me-3 logged-in-user text-center">{user.user.name.charAt(0)}</span>}
        <button className="cart-btn" onClick={() => toggleCart(true)}>
          <img src="cart.png"></img>
