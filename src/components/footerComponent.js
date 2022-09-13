@@ -14,7 +14,7 @@ function Footer(props){
         <div className="container my-4">
             <div className="row">
               <div className="col-12 col-md-6 col-lg-5">
-                <h1 className="mt-4">AweShop</h1>
+                <h1 className="mt-4">WatchStore</h1>
                 <p>Subscribe to our email alerts</p>
                 <div className="subscribe-input">
                     <input type="email" placeholder="Email Address" name="email" id="email"></input>
