@@ -26,9 +26,9 @@ function ProductDetail(){
                 </div>
                 <hr className="mt-4"></hr>
                 <div className="price-div">
-                  <h5 className="price text-danger d-inline">${product?.offer_price}    </h5>
-                  <h6 className="d-inline"><s>${product?.mrp}</s></h6>
-                  <p className="d-inline">(You save: ${(product?.mrp-product?.offer_price)})</p>
+                  <h5 className="price text-danger d-inline">&#8377;{product?.offer_price}    </h5>
+                  <h6 className="d-inline"><s>&#8377;{product?.mrp}</s></h6>
+                  <p className="d-inline">(You save: &#8377;{(product?.mrp-product?.offer_price)})</p>
                   <p className="text-warning">Inclusive of all taxes</p>
                   <div className="wrapper text-center my-4">
                    <button className="btn custom-btn">ADD TO CART</button>

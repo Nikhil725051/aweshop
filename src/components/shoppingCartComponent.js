@@ -18,6 +18,7 @@ function ShoppingCart({isCartOpen, toggleCart}){
         });
         return total;
     }
+    var total=0;
 
     return(
        <Modal className="cart-modal" centered isOpen={isCartOpen} scrollable={true}>
@@ -27,7 +28,7 @@ function ShoppingCart({isCartOpen, toggleCart}){
             return (<div  className="d-flex mb-3">
                  <img src={product?.image}></img>
                  <h6>{product?.name}</h6>
-                 <h6>${product?.offer_price}</h6>
+                 <h6>&#8377;{product?.offer_price}</h6>
                  <button 
                  className="remove-btn" 
                  onClick={() => {dispatch(removeFromCart(cartProducts?.products?.indexOf(product)))}}>
@@ -38,8 +39,8 @@ function ShoppingCart({isCartOpen, toggleCart}){
         </ModalBody>
         <ModalFooter>
             <h5 className="text-total">Total: </h5>
-            <h5 className="total-price me-4">${calculateTotal()}</h5>
-            <Link to="/checkout" className="checkout-btn" onClick={() => {toggleCart(false)}}>Checkout</Link>
+            <h5 className="total-price me-4">&#8377;{total=calculateTotal()}</h5>
+            <Link to={`/checkout/${total}`} className="checkout-btn" onClick={() => {toggleCart(false)}}>Checkout</Link>
         </ModalFooter>
        </Modal>
     );

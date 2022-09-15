@@ -41,7 +41,7 @@ function Footer(props){
               </div>
               <div className="col-6 col-lg-2">
                <div className="footer-links">
-               <h6>Help</h6>
+               <h6>HELP</h6>
                 <a href="#" className="footer-link">Warranty & Support</a>
                 <a href="#" className="footer-link">Track Your Order</a>
                 <a href="#" className="footer-link">Return Policy</a>
@@ -51,7 +51,7 @@ function Footer(props){
               </div>
               <div className="col-6 col-lg-2">
                <div className="footer-links">
-               <h6>Company</h6>
+               <h6>COMPANY</h6>
                 <a href="#" className="footer-link">About</a>
                 <a href="#" className="footer-link">Terms of Service</a>
                 <a href="#" className="footer-link">Privacy Policy</a>
@@ -59,7 +59,7 @@ function Footer(props){
               </div>
             </div>
         </div>
-        <p className="mb-0 pb-2 text-center"> &#169; 2022 AweShop </p>
+        <p className="mb-0 pb-2 text-center"> &#169; 2022 WatchStore </p>
     </footer>);
 }
 

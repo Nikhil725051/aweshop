@@ -38,7 +38,7 @@ function App() {
       <Route path='/all' element={<AllProducts></AllProducts>}></Route>
       <Route path='/Offers' element={<AllOfferProducts></AllOfferProducts>}></Route>
       <Route path='/DailyDeals' element={<AllDailyDeals></AllDailyDeals>}></Route>
-      <Route path='/checkout' element={<CheckoutForm></CheckoutForm>}></Route>
+      <Route path='/checkout/:total' element={<CheckoutForm></CheckoutForm>}></Route>
     </Routes>
     <Footer />
    </Elements>

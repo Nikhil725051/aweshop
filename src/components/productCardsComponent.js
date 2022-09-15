@@ -32,8 +32,8 @@ const ProductCard = ({product}) => {
                 </div>
                 <div className="price-div ms-3">
                   <hr className="me-3 my-2"/>
-                  <h5 className="price fs-5 text-danger d-inline">${product.offer_price}    </h5>
-                  <h5 className="d-inline fs-6"><s>${product.mrp}</s></h5>
+                  <h5 className="price fs-5 text-danger d-inline">&#8377;{product.offer_price}    </h5>
+                  <h5 className="d-inline fs-6"><s>&#8377;{product.mrp}</s></h5>
                 </div>
 
                 <div className="wrapper text-center">

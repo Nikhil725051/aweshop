@@ -1,20 +1,24 @@
 import React, {useState} from "react";
 import {useElements, useStripe, CardElement} from "@stripe/react-stripe-js";
 import {useSelector} from "react-redux";
+import { useParams } from "react-router-dom";
 
 
 
 function CheckoutForm(){
 
+    var {total} = useParams();
+    var [success, setSuccess] = useState(false);
+
 
     const getClientSecret = async () => {
         //Get client secret from the server
-        const res = await fetch('http://localhost:3000/stripe-checkout/',{
+        const res = await fetch('https://blooming-hamlet-98079.herokuapp.com/payment',{
             method:'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({'amount':1000}),
+            body: JSON.stringify({'amount':total}),
             credentials: 'same-origin'
         })
         if(!res.ok){
@@ -57,10 +61,11 @@ function CheckoutForm(){
           }
          });
         if(confirmCardPayment.error){
+            setSuccess(false);
             console.log(confirmCardPayment.error.message)
         }else if(confirmCardPayment.paymentIntent.status==='succeeded'){
+            setSuccess(true);
             console.log('Success');
-            console.log(confirmCardPayment);
         }
 
     }
@@ -71,6 +76,9 @@ function CheckoutForm(){
          <form id="payment-form" onSubmit={(e) => handleSubmit(e)}>
            <CardElement></CardElement>
            <button className="mt-3 pay-btn" disabled={!stripe}>Pay</button>
+           {success &&
+            <h5 className={ `text-center mt-3 ${success ? 'text-success' : 'text-danger'}` }>
+                {success ? "Payment Successfull!" : "Payment Failed" }</h5>}
         </form>
        </div>
         
