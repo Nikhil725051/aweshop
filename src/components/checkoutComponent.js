@@ -9,6 +9,7 @@ function CheckoutForm(){
 
     var {total} = useParams();
     var [success, setSuccess] = useState(false);
+    var [isPayBtnClicked, setPayBtnClicked] = useState(false);
 
 
     const getClientSecret = async () => {
@@ -42,6 +43,7 @@ function CheckoutForm(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setPayBtnClicked(true);
         const clientSecret = await getClientSecret();
         
         const confirmCardPayment = await stripe.confirmCardPayment(clientSecret, {
@@ -60,10 +62,11 @@ function CheckoutForm(){
             }
           }
          });
+         setPayBtnClicked(false);
         if(confirmCardPayment.error){
             setSuccess(false);
             console.log(confirmCardPayment.error.message)
-        }else if(confirmCardPayment.paymentIntent.status==='succeeded'){
+        }else if(confirmCardPayment.paymentIntent.status ==='succeeded'){
             setSuccess(true);
             console.log('Success');
         }
@@ -76,6 +79,8 @@ function CheckoutForm(){
          <form id="payment-form" onSubmit={(e) => handleSubmit(e)}>
            <CardElement></CardElement>
            <button className="mt-3 pay-btn" disabled={!stripe}>Pay</button>
+           {isPayBtnClicked &&
+            <h5 className="text-center mt-3">Please wait...</h5>}
            {success &&
             <h5 className={ `text-center mt-3 ${success ? 'text-success' : 'text-danger'}` }>
                 {success ? "Payment Successfull!" : "Payment Failed" }</h5>}
