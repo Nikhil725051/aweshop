@@ -1,10 +1,24 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, {useState} from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {useParams} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faShield, faBoxOpen, faTruckFast, faCreditCard } from "@fortawesome/free-solid-svg-icons";
+import {addToCart} from "../redux/actionCreators";
+import {faShield, faBoxOpen, faTruckFast, faCreditCard, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 function ProductDetail(){
+
+  const [isClicked, setClicked] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    setClicked(true);
+    setTimeout(
+      () => {
+        dispatch(addToCart(product));
+        setClicked(false);
+      }, 1000)
+}
     
     document.body.style.backgroundColor = "#FFFFFF";
     const {allProducts} = useSelector((state) => state);
@@ -31,7 +45,8 @@ function ProductDetail(){
                   <p className="d-inline">(You save: &#8377;{(product?.mrp-product?.offer_price)})</p>
                   <p className="text-warning">Inclusive of all taxes</p>
                   <div className="wrapper text-center my-4">
-                   <button className="btn custom-btn">ADD TO CART</button>
+                   <button className="btn custom-btn" onClick={() => handleClick()}>
+                    {isClicked ? <FontAwesomeIcon icon={faSpinner}></FontAwesomeIcon> : "ADD TO CART"}</button>
                   </div>
                 </div>
                 <hr className="mt-4"></hr>

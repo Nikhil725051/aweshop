@@ -76,8 +76,7 @@ export const addToCart = (product) => (dispatch) => {
         localStorage.setItem('cart',JSON.stringify(cartProducts));
     }
     //Dispatch related action to update the state
-    // Used setTimeout() to Mock the network call delay in posting cart products on server
-    setTimeout(() => {dispatch(updateCart(cartProducts));}, 1000 );
+    dispatch(updateCart(cartProducts));
     
 }
 

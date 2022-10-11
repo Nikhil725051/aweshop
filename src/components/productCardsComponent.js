@@ -15,9 +15,11 @@ const ProductCard = ({product}) => {
 
     const handleClick = () => {
         setClicked(true);
-        setTimeout(() => {setClicked(false);}, 1000)
-        dispatch(addToCart(product));
-
+        setTimeout(
+          () => {
+            dispatch(addToCart(product));
+            setClicked(false);
+          }, 1000)
     }
 
     return(
